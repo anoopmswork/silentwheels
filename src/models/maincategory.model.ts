@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Category} from './category.model';
 
 @model({settings: {strict: false}})
 export class Maincategory extends Entity {
@@ -22,6 +23,8 @@ export class Maincategory extends Entity {
   })
   status: boolean;
 
+  @hasMany(() => Category)
+  categories: Category[];
   // Define well-known properties here
 
   // Indexer property to allow additional data

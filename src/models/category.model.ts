@@ -16,17 +16,15 @@ export class Category extends Entity {
   Category: string;
 
   @property({
-    type: 'number',
-    required: true,
-  })
-  Activity: number;
-
-  @property({
     type: 'boolean',
     required: true,
   })
   Status: boolean;
 
+  @property({
+    type: 'number',
+  })
+  maincategoryId?: number;
   // Define well-known properties here
 
   // Indexer property to allow additional data
