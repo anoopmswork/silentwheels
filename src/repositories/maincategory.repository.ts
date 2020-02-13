@@ -1,22 +1,14 @@
-import {DefaultCrudRepository, repository, HasManyRepositoryFactory} from '@loopback/repository';
-import {Maincategory, MaincategoryRelations, Category} from '../models';
+import {DefaultCrudRepository} from '@loopback/repository';
+import {Maincategory, MaincategoryRelations} from '../models';
 import {MysqlDsDataSource} from '../datasources';
-import {inject, Getter} from '@loopback/core';
-import {CategoryRepository} from './category.repository';
+import {inject} from '@loopback/core';
 
 export class MaincategoryRepository extends DefaultCrudRepository<
   Maincategory,
   typeof Maincategory.prototype.id,
   MaincategoryRelations
 > {
-
-  public readonly categories: HasManyRepositoryFactory<Category, typeof Maincategory.prototype.id>;
-
-  constructor(
-    @inject('datasources.mysqlDs') dataSource: MysqlDsDataSource, @repository.getter('CategoryRepository') protected categoryRepositoryGetter: Getter<CategoryRepository>,
-  ) {
+  constructor(@inject('datasources.mysqlDs') dataSource: MysqlDsDataSource) {
     super(Maincategory, dataSource);
-    this.categories = this.createHasManyRepositoryFactoryFor('categories', categoryRepositoryGetter,);
-    this.registerInclusionResolver('categories', this.categories.inclusionResolver);
   }
 }

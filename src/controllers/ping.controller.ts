@@ -3,6 +3,7 @@ import {inject} from '@loopback/context';
 
 /**
  * OpenAPI response for ping()
+ *
  */
 const PING_RESPONSE: ResponseObject = {
   description: 'Ping Response',

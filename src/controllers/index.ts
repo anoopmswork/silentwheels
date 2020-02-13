@@ -2,3 +2,8 @@ export * from './ping.controller';
 export * from './maincategory.controller';
 export * from './maincategory-category.controller';
 export * from './category.controller';
+export * from './maincategory-company-maincategory.controller';
+export * from './maincategory-company-company.controller';
+export * from './maincategory-company-maincategory.controller';
+export * from './maincategory-company-company.controller';
+export * from './company.controller';
